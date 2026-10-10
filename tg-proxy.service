@@ -1,0 +1,14 @@
+[Unit]
+Description=Telegram MTProto WebSocket Proxy
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/tg-proxy/tg-proxy.py -c /opt/tg-proxy/config.ini
+WorkingDirectory=/opt/tg-proxy
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
